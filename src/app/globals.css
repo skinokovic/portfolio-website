@@ -1,26 +1,187 @@
 @import "tailwindcss";
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
+} */
+
+@theme {
+  /* Background Images */
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+
+  /* Colors */
+  --color-transparent: transparent;
+
+  --color-black-900: #000000;
+  --color-black-500: #4f5665;
+  --color-black-600: #0b132a;
+
+  --color-orange-100: #ffecec;
+  --color-orange-500: #f53855;
+
+  --color-green-500: #14b8a6;
+  --color-green-main: #0d9488;
+  --color-primary: #0db760;
+  /* --color-green-main: #0db760; */
+
+  --color-white-300: #f8f8f8;
+  --color-white-500: #fff;
+
+  --color-gray-100: #eeeff2;
+  --color-gray-400: #afb5c0;
+  --color-gray-500: #dddddd;
+
+  /* Font */
+  --font-sans: "Rubik", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base styles */
+html {
+  font-family: "Rubik", sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+}
+
+/* p {
+  color: #000000;
+} */
+
+/* Animation hover underline effect */
+.animation-hover:after {
+  background: none repeat scroll 0 0 transparent;
+  content: "";
+  height: 2px;
+  transition:
+    width 0.3s ease 0s,
+    left 0.3s ease 0s;
+  @apply w-0 bg-[#14B8A6] left-1/2 block bottom-0 absolute;
+}
+.animation-active:after {
+  @apply left-0 w-full;
+}
+.animation-hover:hover:after {
+  @apply left-0 w-full;
+}
+
+/* Custom list styles */
+li.custom-list:before {
+  content: "\2022";
+  text-indent: -9999999px;
+  width: 0.4em;
+  height: 1em;
+  background-repeat: no-repeat;
+  background-size: 0.4em 0.7em;
+  background-position: 0 0.3em;
+  font-size: 300%;
+  top: -0.35em;
+  @apply absolute block;
+}
+li.circle-check:before {
+  background-image: url("/assets/Icon/checklist.svg");
+  left: -0.7em;
+  top: -0.4em;
+}
+li.check:before {
+  left: -0.5em;
+  background-image: url("/assets/Icon/jam_check.svg");
+  top: -0.5em;
+  font-size: 400%;
+}
+
+/* Slick dots */
+.slick-dots li {
+  @apply inline-block;
+}
+.slick-dots span {
+  @apply bg-[#DDDDDD];
+}
+.slick-dots .slick-active span {
+  @apply bg-[#F53855] rounded-l-full rounded-r-full w-12;
+}
+
+/* Scrollbar styles */
+body::-webkit-scrollbar {
+  width: 5px;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background: #fff3;
+  -webkit-border-radius: 1ex;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e3a5f;
+  -webkit-border-radius: 1ex;
+}
+::-webkit-scrollbar-corner {
+  background: #fff3;
+}
+
+/* Progress bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--red);
+  transform-origin: 0%;
+}
+
+/* Project wrapper */
+.project-wrapper {
+  display: flex;
+  list-style: none;
+  height: 350px;
+  overflow-x: scroll;
+  padding: 20px 0;
+  flex: 0 0 600px;
+}
+.project-wrapper li {
+  flex: 0 0 300px;
+  margin: 0 20px 0 0;
+}
+.project-wrapper li:last-of-type {
+  margin: 0;
+}
+
+/* SVG Progress Circle */
+#progress {
+  transform: rotate(-90deg);
+}
+circle {
+  stroke-dashoffset: 0;
+  stroke-width: 15%;
+  fill: none;
+}
+.bg {
+  stroke: blue;
+  opacity: 0.3;
+}
+#progress .indicator {
+  stroke: red;
+}
+
+/* MUI Timeline overrides */
+.MuiTimelineItem-root::before {
+  flex: 0 !important;
+}
+.MuiTimelineDot-root {
+  background-color: #0d9488 !important;
+}
+.MuiTimelineConnector-root {
+  background-color: #0d9488 !important;
 }
