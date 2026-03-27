@@ -7,7 +7,7 @@ import Image from "next/image";
 
 async function extractAllDatas(currentSection) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/${currentSection}/get`,
+    `https://cbnsolutions.netlify.app/api/${currentSection}/get`,
     {
       method: "GET",
       cache: "no-store",
