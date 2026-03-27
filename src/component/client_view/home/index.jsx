@@ -10,7 +10,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import Image from "next/image";
-import home from "../../../assests/home.png";
+import home from "../../../assests/logo5.png";
 
 function variants() {
   return {
@@ -105,21 +105,24 @@ export default function ClientHomeView({ data }) {
             </motion.div>
           </div>
 
-          <motion.div ref={containerRef} className="flex w-full justify-end">
+          <motion.div
+            ref={containerRef}
+            className="flex w-full justify-end px-4"
+          >
             <motion.div
               drag
               dragConstraints={containerRef}
-              className="w-[400px] h-[400px] relative bg-green-main rounded-lg shadow-2xl"
+              className="w-[400px] h-[400px] relative bg-green-main rounded-lg shadow-2xl "
             >
-              <div className="w-[400px] h-[400px] top-[40px] left-[-30px] rounded-lg border-[6px] border-gray-800 absolute"></div>
+              <div className="w-[400px] h-[400px] top-[-20px] left-[-20px] rounded-lg border-[6px] border-gray-800 absolute"></div>
 
               <Image
                 src={home}
                 alt="home image"
-                width={300}
-                height={300}
+                width={200}
+                height={200}
                 quality={75}
-                className="w-full h-auto absolute top-[-15px] rounded-lg"
+                className="w-full h-auto absolute top-[-15px] left-[-2px] rounded-lg"
               />
             </motion.div>
           </motion.div>

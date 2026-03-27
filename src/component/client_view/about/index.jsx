@@ -222,7 +222,7 @@ export default function ClientAboutView({ data }) {
             <Image
               src={about}
               alt="about image"
-              width={508}
+              width={408}
               height={414}
               className="w-full h-auto"
               quality={75}
